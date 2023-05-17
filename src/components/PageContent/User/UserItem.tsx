@@ -22,9 +22,9 @@ import {
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-type UserItemProps = { user: User };
+type UserItemProps = { user: User; index: number };
 
-const UserItem: React.FC<UserItemProps> = ({ user }) => {
+const UserItem: React.FC<UserItemProps> = ({ user, index }) => {
   const signedInUser = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
@@ -96,7 +96,6 @@ const UserItem: React.FC<UserItemProps> = ({ user }) => {
                 value={user.bio}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {}}
               />
-              {/* //ref={initialRef} */}
             </FormControl>
 
             <FormControl mt={4}>
@@ -113,7 +112,8 @@ const UserItem: React.FC<UserItemProps> = ({ user }) => {
             <Button onClick={() => setOpen(false)}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
-      </Modal>{" "}
+      </Modal>
+
       <GridItem
         w="100%"
         borderRadius={"4px"}

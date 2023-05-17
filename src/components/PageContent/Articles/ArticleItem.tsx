@@ -352,12 +352,13 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article, end, detail }) => {
             _hover={{ cursor: "pointer" }}
           ></Icon>
         </Flex>
-        <Flex align={"center"}>
+        <Flex align={"center"} w={"100%"} flexWrap="wrap">
           {article.tagList.length != 0 && (
             <Text mr={2} fontSize={"sm"}>
               Tag:
             </Text>
           )}
+
           {article.tagList.map((tag, index) => (
             <Box
               key={index}
